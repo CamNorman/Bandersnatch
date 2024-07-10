@@ -1,5 +1,6 @@
-# Import necessary packages
+
 from os import getenv
+from typing import Dict, Iterable, Iterator
 from certifi import where
 from dotenv import load_dotenv
 from MonsterLab import Monster
@@ -22,6 +23,7 @@ class Database:
 
     def reset(self):
         self.collection.delete_many({})
+        self.collection.seed()
         return "Monsters Reset"
 
     def count(self) -> str:
@@ -35,9 +37,12 @@ class Database:
         return self.dataframe().to_html(index=False)
 
 
-if __name__ == '__main__':
-    db = Database()
-    db.reset()
-    db.seed()
-    print(db.count())
+# if __name__ == '__main__':
+#     db = Database()
+#     if db is not None:
+#         db.reset()
+#         print(db.count())
+#     else:
+#         db.seed()
+#         print(db.count())
 
