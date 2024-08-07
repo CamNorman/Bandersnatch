@@ -1,4 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
+from datetim eimport datetime
 import pickle
 
 
@@ -10,6 +11,7 @@ class Machine:
         target = df['Rarity']
         features = df.drop(['Rarity'], axis=1)
         self.model.fit(features, target)
+        self.timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     def __call__(self, feature_basis):
         prediction, _ = self.model.predict(feature_basis)
@@ -25,5 +27,6 @@ class Machine:
         return result
 
     def info(self):
-        pass
+        # return the name of the classifier and the time that ir was accesssed
+        return f"{self.name}, was accessed at {self.timestamp}"
 #joblib
