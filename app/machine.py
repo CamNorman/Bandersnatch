@@ -29,4 +29,4 @@ class Machine:
     def info(self):
         # return the name of the classifier and the time that ir was accesssed
         return f"{self.name}, was accessed at {self.timestamp}"
-#joblib
+
