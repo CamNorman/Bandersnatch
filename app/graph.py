@@ -1,7 +1,9 @@
+# Call designated packages
 from altair import Chart, Tooltip
 from pandas import DataFrame
 
 
+# Graphing the model
 def chart(df: DataFrame, x: str, y: str, target: str) -> Chart:
     graph = Chart(df,
                   title=f"{x} and {y} searching for {target}",
