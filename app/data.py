@@ -7,6 +7,7 @@ from pandas import DataFrame
 from pymongo import MongoClient
 
 
+# Create class that will edit and create the database
 class Database:
     def __init__(self):
         load_dotenv()
@@ -39,7 +40,7 @@ class Database:
     def html_table(self) -> str:
         return self.dataframe().to_html(index=False)
 
-
+# First call to create the database
 if __name__ == '__main__':
     db = Database()
     db.reset()
